@@ -1,20 +1,33 @@
-#include "libft.h"
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/23 15:14:18 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 15:16:40 by sdubazan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static size_t	ft_power_s(size_t nb, int power)
+static size_t ft_power_s(size_t nb, int power)
 {
-	if (power == 0)
+	if(power == 0)
+	{
 		return (1);
-	if (power < 0)
+	}
+	if(power < 0)
+	{
 		return (0);
+	}
 	return (nb * ft_power_s(nb, power - 1));
 }
 
-static size_t	ft_getval(char *nbr, char *base_from)
+static size_t ft_getval(char *nbr, char *base_from)
 {
 	size_t	val;
-	int		i;
-	int		j;
+	int	 i;
+	int	 j;
 	size_t	len;
 
 	len = ft_strlen(nbr);
@@ -23,14 +36,13 @@ static size_t	ft_getval(char *nbr, char *base_from)
 	while (nbr[++i])
 	{
 		j = -1;
-		while (nbr[i] != base_from[++j])
-			;
+		while (nbr[i] != base_from[++j]);
 		val += j * (len - i ? ft_power_s(10, len - i - 1) : 1);
 	}
 	return (val);
 }
 
-char			*ft_convert_base(char *nbr, char *base_from, char *base_to)
+char *ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	char	*res;
 	size_t	val;

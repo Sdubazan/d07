@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_print_words_tables.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 14:55:54 by sdubazan          #+#    #+#             */
-/*   Updated: 2020/06/23 15:03:19 by sdubazan         ###   ########.fr       */
+/*   Created: 2020/06/23 15:11:45 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 15:13:19 by sdubazan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_ultimate_range(int **range, int min, int max)
+void ft_putchar(char c)
+{
+	write(1,&c,1);
+}
+
+void ft_print_words_tables(char **tab)
 {
 	int i;
-	int *tab;
+	int j;
 
-	if (min >= max)
-	{
-		*range = (void *)0;
-		return (0);
-	}
-	tab = (int*)malloc(sizeof(*tab) * (max - min));
 	i = 0;
-	while (min < max)
+	while (tab[i])
 	{
-		tab[i] = min;
-		i++;
-		min++;
+		j = 0;
+		while (tab[i][j])
+		{
+			ft_putchar(tab[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
+		tab++;
 	}
-	*range = tab;
-	return (i);
 }

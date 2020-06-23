@@ -1,7 +1,16 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/23 15:17:37 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 15:19:10 by sdubazan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static char			**ft_malloc_split(char const *s, char d, unsigned int *ui,
-		unsigned int *uwc)
+static char	**ft_malloc_split(char const *s, char d, unsigned int *ui, unsigned int *uwc)
 {
 	unsigned int	word_count;
 	unsigned int	i;

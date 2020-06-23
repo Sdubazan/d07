@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 14:55:54 by sdubazan          #+#    #+#             */
-/*   Updated: 2020/06/23 15:03:19 by sdubazan         ###   ########.fr       */
+/*   Created: 2020/06/23 14:08:34 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 14:20:14 by sdubazan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_ultimate_range(int **range, int min, int max)
+char *ft_strdup(char *src)
 {
-	int i;
-	int *tab;
+	int		i;
+	int		len;
+	char	*str;
 
-	if (min >= max)
-	{
-		*range = (void *)0;
-		return (0);
-	}
-	tab = (int*)malloc(sizeof(*tab) * (max - min));
+	len = 0;
+	while (src[len])
+		len++;
+	str = (char*)malloc(sizeof(*str) * (len + 1));
 	i = 0;
-	while (min < max)
+	while (i < len)
 	{
-		tab[i] = min;
+		str[i] = src[i];
 		i++;
-		min++;
 	}
-	*range = tab;
-	return (i);
+	return (str);
 }

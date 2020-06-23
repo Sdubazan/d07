@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split_whitespaces.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/23 15:06:37 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 15:09:21 by sdubazan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libft.h>
 
 int		ft_iswhitespace(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\r')
+	{
 		return (1);
+	}
 	return (0);
 }
 
@@ -25,19 +39,21 @@ int		ft_count_words(char *str)
 				nbwords++;
 		}
 		else
+		{
 			new = 0;
+		}
 		c++;
 	}
 	return (nbwords);
 }
 
-int		ft_count_word_length(char *str, int word, int *start)
+int	ft_count_word_length(char *str, int word, int *start)
 {
 	int		w;
 	int		new;
 	int		c;
 	size_t	length;
-	
+
 	w = -1;
 	new = 0;
 	c = 0;
